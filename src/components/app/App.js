@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddTodo from '../addTodo/AddTodo';
+import AddTodo from '../addTodo/addTodo';
 import './App.css';
 
 const App = () =>
