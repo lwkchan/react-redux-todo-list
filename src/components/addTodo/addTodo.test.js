@@ -13,6 +13,13 @@ describe('AddTodo component', () => {
 
   it('should have one input', () => {
     const wrapper = shallow(<AddTodo/>);
-    expect(wrapper.find('.todo-input').length).toBe(1)
+    expect(wrapper.find('.todo-input').length).toEqual(1);
+  })
+
+  describe('Add todo button', () => {
+    it('Should exist', () => {
+      const wrapper = shallow(<AddTodo/>);
+      expect(wrapper.find('.todo-submit').length).toEqual(1);
+    })
   })
 })

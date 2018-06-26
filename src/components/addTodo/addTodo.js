@@ -1,10 +1,13 @@
 import React from 'react';
 
-console.log('importing todo')
-
 const AddTodo = () =>
   <div>
-    <input className='todo-input'/>
+    <form>
+      <input className='todo-input'/>
+      <button type='submit' className='todo-submit'>
+        Add Todo
+      </button>
+    </form>
   </div>
 
 export default AddTodo
