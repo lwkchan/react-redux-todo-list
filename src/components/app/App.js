@@ -5,7 +5,7 @@ import './App.css';
 const App = () =>
   <div>
     <h1>Todo list</h1>
-    <AddTodo/>
+    <AddTodo submitTodo={() => {}}/>
   </div>
 
 export default App;
