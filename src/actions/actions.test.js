@@ -1,5 +1,5 @@
-import actions from './actions'
-import types from '../constants'
+import actions from './actions';
+import types from '../constants/ActionTypes';
 
 describe('Actions', () => {
   const todoText = 'what i need to do';

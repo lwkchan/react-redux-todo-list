@@ -13,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom src/components/**/*.test.js",
+    "test": "react-scripts test --env=jsdom --testPathIgnorePatterns src/components/integration-tests/*.test.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

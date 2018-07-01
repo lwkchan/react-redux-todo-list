@@ -1,4 +1,4 @@
-import types from '../constants'
+import types from '../constants/ActionTypes'
 
 let todoId = 0;
 
