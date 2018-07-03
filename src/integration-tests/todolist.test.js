@@ -15,6 +15,6 @@ describe('TodoList App', ()=>{
     cy.get('.todo-submit').click();
     
     cy.get('.todo-text')
-      .should('equal', todoText);
+      .should('contain', todoText);
   })
 })
