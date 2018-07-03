@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AddTodo from '../addTodo/addTodo';
@@ -8,7 +8,7 @@ import './App.css';
 export const App = ({ submitTodo }) =>
   <div>
     <h1>Todo list</h1>
-    <AddTodo submitTodo={(submitTodo) => {submitTodo}}/>
+    <AddTodo submitTodo={submitTodo => submitTodo }/>
   </div>
 
 App.propTypes = {
