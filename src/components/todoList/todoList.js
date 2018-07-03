@@ -1,16 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, deleteTodo }) => {
     const todoItems = todos.map(todo => (
         <li key={todo.id}>
-            <span className='todo-text'>{ todo.text }</span>
+            <button
+            type='button'
+            className='todo-delete'
+            onClick={() => deleteTodo(todo.id)}
+            >
+                Delete
+            </button>
+            <span className='todo-text'>
+                {todo.text}
+            </span>
         </li>)
     );
 
     return (
         <ul>
-            { todoItems }
+            {todoItems}
         </ul>
     )
 };
@@ -21,7 +30,8 @@ TodoList.propTypes = {
             id: PropTypes.number.isRequired,
             text: PropTypes.string.isRequired,
         }
-    ))
+    )).isRequired,
+    deleteTodo: PropTypes.func.isRequired,
 }
 
 export default TodoList;

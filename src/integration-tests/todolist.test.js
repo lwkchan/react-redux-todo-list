@@ -17,4 +17,15 @@ describe('TodoList App', ()=>{
     cy.get('.todo-text')
       .should('contain', todoText);
   })
+
+  it('Should allow me to delete a todo', () => {
+    const todoText = 'Buy some suger';
+    cy.visit(appLink);
+    cy.get('.todo-input').type(todoText);
+    cy.get('.todo-submit').click();
+    cy.get('.todo-delete').click();
+
+    cy.get('.todo-text')
+      .should('not.contain', todoText);
+  })
 })

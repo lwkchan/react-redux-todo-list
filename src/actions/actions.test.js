@@ -13,4 +13,14 @@ describe('Actions', () => {
 
     expect(actions.submitTodo(todoText)).toEqual(expectedAction)
   })
+
+  it('should create an action to delete a todo', () => {
+    const expectedAction = {
+      type: types.DELETE_TODO,
+      id: 1,
+    };
+    const id = 1;
+
+    expect(actions.deleteTodo(id)).toEqual(expectedAction)
+  })
 })
