@@ -19,7 +19,7 @@ describe('TodoList App', ()=>{
   })
 
   it('Should allow me to delete a todo', () => {
-    const todoText = 'Buy some suger';
+    const todoText = 'Buy some sugar';
     cy.visit(appLink);
     cy.get('.todo-input').type(todoText);
     cy.get('.todo-submit').click();
@@ -27,5 +27,17 @@ describe('TodoList App', ()=>{
 
     cy.get('.todo-text')
       .should('not.contain', todoText);
+  })
+
+  it('Should allow me to undo the last delete todo', () => {
+    const todoText = 'Buy some milk';
+    cy.visit(appLink);
+    cy.get('.todo-input').type(todoText);
+    cy.get('.todo-submit').click();
+    cy.get('.todo-delete').click();
+    cy.get('.undo-delete').click();
+
+    cy.get('.todo-text')
+      .should('contain', todoText);
   })
 })

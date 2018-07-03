@@ -26,7 +26,20 @@ export const reducer = (state = initialState, action) => {
               todo.id !== action.id
             ),
           ],
+          lastDeleted: state.todos.filter(todo => 
+            todo.id === action.id
+          ).pop()
         };
+
+      case types.UNDO_DELETE_TODO:
+        return {
+          ...state,
+          todos: [
+            ...state.todos,
+            state.lastDeleted
+          ],
+          lastDeleted: {}
+        }
       
     default:
       return state;

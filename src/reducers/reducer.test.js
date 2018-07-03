@@ -1,4 +1,4 @@
-import types from '../constants/ActionTypes';
+ import types from '../constants/ActionTypes';
 import { reducer, initialState } from './reducer.js';
 
 describe('Reducer', () => {
@@ -87,6 +87,10 @@ describe('Reducer', () => {
             text: todoText,
           },
         ],
+        lastDeleted: {
+          id: 2,
+          text: todoText,
+        },
       };
 
       const action = {
@@ -95,6 +99,51 @@ describe('Reducer', () => {
       };
 
       expect(reducer(existingState, action)).toEqual(expectedState)
+    });
+  });
+
+  describe('undo delete todo', () => {
+    it('should return the correct state after undeleting a todo', () => {
+      const existingState = {
+        todos: [
+          {
+            id: 1,
+            text: todoText,
+          },
+          {
+            id: 2,
+            text: todoText,
+          },
+        ],
+        lastDeleted: {
+          id: 3,
+          text: todoText,
+        },
+      };
+
+      const action = {
+        type: types.UNDO_DELETE_TODO
+      };
+
+      const expectedState = {
+        todos: [
+          {
+            id: 1,
+            text: todoText,
+          },
+          {
+            id: 2,
+            text: todoText,
+          },
+          {
+            id: 3,
+            text: todoText,
+          },
+        ],
+        lastDeleted: {},
+      };
+
+      expect(reducer(existingState, action)).toEqual(expectedState);
     })
   })
 })

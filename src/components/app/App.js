@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import AddTodo from '../addTodo/addTodo';
 import actions from '../../actions/actions';
 import TodoList from '../todoList/todoList';
+import UndoDelete from '../undoDelete/undoDelete';
 import './App.css';
 
-export const App = ({ submitTodo, deleteTodo, todos }) =>
+export const App = ({ submitTodo, undoDelete, deleteTodo, todos }) =>
   <div>
     <h1>Todo list</h1>
     <AddTodo submitTodo={submitTodo}/>
+    <UndoDelete undoDelete={undoDelete}/>
     <TodoList todos={todos} deleteTodo={deleteTodo}/>
   </div>
 
@@ -28,6 +30,9 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteTodo: (id) => {
     dispatch(actions.deleteTodo(id));
+  },
+  undoDelete: () => {
+    dispatch(actions.undoDelete());
   }
 });
 

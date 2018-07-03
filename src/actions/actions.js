@@ -22,6 +22,12 @@ const actions = {
       id: id,
     };
   },
+
+  undoDelete () {
+    return {
+      type: types.UNDO_DELETE_TODO,
+    }
+  }
 };
 
 export default actions;

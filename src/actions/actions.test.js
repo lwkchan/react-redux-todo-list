@@ -23,4 +23,12 @@ describe('Actions', () => {
 
     expect(actions.deleteTodo(id)).toEqual(expectedAction)
   })
+
+  it('should create an action to undo a deleted todo', () => {
+    const expectedAction = {
+      type: types.UNDO_DELETE_TODO,
+    }
+
+    expect(actions.undoDelete()).toEqual(expectedAction);
+  })
 })
